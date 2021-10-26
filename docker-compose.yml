@@ -1,0 +1,40 @@
+version: '3.9'
+services:
+  db:
+    image: crunchydata/crunchy-postgres:centos8-13.4-4.7.2
+    environment:
+      MODE: postgres
+      PG_MODE: primary
+      PG_USER: tembo
+      PG_PASSWORD: swahili
+      PG_PRIMARY_USER: tembo_replicator
+      PG_DATABASE: tembo_db
+      PG_PRIMARY_PORT: 5432
+      PG_PRIMARY_PASSWORD: swahili_r
+      PG_ROOT_PASSWORD: ilihaws
+      PGHOST: /tmp
+      # Uncomment for pgBackRest
+      # PGBACKREST: true
+      # PGBACKREST_STANZA: demo
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/pgdata:/pgdata
+      - ./data/backrestrepo:/backrestrepo
+
+  admin:
+    image: crunchydata/crunchy-pgadmin4:centos8-13.4-4.7.2
+    environment:
+      PGADMIN_SETUP_EMAIL: fred9702@gmail.com
+      PGADMIN_SETUP_PASSWORD: wesh
+    ports:
+      - "5050:5050"
+    depends_on:
+      - db
+
+
+
+
+
+
+

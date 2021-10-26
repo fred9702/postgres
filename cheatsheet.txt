@@ -1,0 +1,42 @@
+https://www.postgresql.org/docs/9.4/using-explain.html
+
+#BAD
+
+CREATE TABLE apartment(
+id int,
+apartment_number int,
+floor int,
+facing VARCHAR(50));
+
+#GOOD
+
+CREATE TABLE apartments (
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	apartment_number INT NOT NULL,
+	floor INT NOT NULL,
+	facing INT NOT NULL,
+	movein DATE NOT NULL,
+	moveout DATE,
+	children INT
+)
+
+CREATE TABLE person (
+	id BIGSERIAL NOT NULL PRIMARY KEY,
+	first_name VARCHAR(100),
+	last_name VARCHAR(100),
+	gender VARCHAR(50),
+	date_of_birth DATE NOT NULL,
+	email VARCHAR(100),
+	age INT
+)
+INSERT INTO apartents VALUES('1', '1', 'south', ')
+
+
+ctrl + l = clear
+
+pgbackrest backup --stanza=demo --pg1-host=db --pg1-path=/pgdata/54389e77b4a1 --repo1-path=/backrestrepo/54389e77b4a1-backups --log-path=/tmp --type=full 
+
+
+pgbackrest info \
+  --stanza=demo \
+  --repo1-path=backrestrepo/54389e77b4a1-backups

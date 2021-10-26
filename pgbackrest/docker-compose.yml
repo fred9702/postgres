@@ -1,0 +1,41 @@
+version: '3.9'
+services:
+  # pgbackrest-repo:
+  #   image: crunchydata/crunchy-pgbackrest:centos8-13.4-4.7.2
+  #   environment:
+  #     MODE: pgbackrest-repo
+  #   volumes:
+  #       - ../data/backrestrepo:/backrestrepo
+  #       - ../data/sshd:/sshd
+
+  # pgbackrest:
+  #   image: crunchydata/crunchy-pgbackrest:centos8-13.4-4.7.2
+  #   environment:
+  #     MODE: pgbackrest
+  #     COMMAND: help
+  #     PGBACKREST_STANZA: demo
+  #     PGBACKREST_REPO_PATH: /backrestrepo
+      
+  #     PODNAME: db
+  #   volumes:
+  #     - ../data/backrestrepo:/backrestrepo
+  #     - ../data/sshd:/sshd
+  #     - ../data/pgdata:/pgdata
+  #   depends_on:
+  #     - pgbackrest-repo
+
+  # pgbackrest-restore:
+  #   image: crunchydata/crunchy-pgbackrest:centos8-13.4-4.7.2
+  #   environment:
+  #     MODE: pgbackrest-restore
+
+networks:
+      default:
+        external: true
+        name: postgres_default
+
+
+
+
+
+

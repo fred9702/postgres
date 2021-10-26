@@ -1,0 +1,16 @@
+version: '3.9'
+services: 
+  pgbench:
+    image: crunchydata/crunchy-postgres:centos8-13.4-4.7.2
+    environment:
+      MODE: pgbench
+      PG_DATABASE: demo
+      PG_HOSTNAME: db
+      PG_USERNAME: postgres
+      PG_PASSWORD: ilihaws
+      PGBENCH_SCALE: 50
+
+networks:
+  default:
+    external: true
+    name: postgres_default
