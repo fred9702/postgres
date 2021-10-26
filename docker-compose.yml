@@ -14,8 +14,11 @@ services:
       PG_ROOT_PASSWORD: ilihaws
       PGHOST: /tmp
       # Uncomment for pgBackRest
-      # PGBACKREST: true
-      # PGBACKREST_STANZA: demo
+      PGBACKREST: true
+      PGBACKREST_STANZA: demo
+      PGBACKREST_REPO1_RETENTION_FULL: 2
+      ARCHIVE_MODE: on
+      MAX_WAL_SENDERS: 3
     ports:
       - "5432:5432"
     volumes:
